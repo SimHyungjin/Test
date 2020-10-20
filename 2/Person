@@ -1,0 +1,59 @@
+#include <iostream>
+using namespace std;
+
+class Person
+{
+	string name;
+	string haircolor;
+	int age;
+	int height;
+public:
+	Person() {}
+	Person(string n, string c, int a, int h) : name(n), haircolor(c), age(a), height(h) {}
+	~Person() {};
+	void setName(string n)
+	{
+		this->name = "n";
+	}
+	void sethaircolor(string c)
+	{
+		this->haircolor = c;
+	}
+	void setAge(int a)
+	{
+		this->age = a;
+	}
+	void setHeight(int h)
+	{
+		this->height = h;
+	}
+	string getName()
+	{
+		return name;
+	}
+	string getHaircolor()
+	{
+		return haircolor;
+	}
+	int getage()
+	{
+		return age;
+	}
+	int getheight()
+	{
+		return height;
+	}
+	void printPerson()
+	{
+		cout << "Name = " << name << endl;
+		cout << "Haircolor = " << haircolor << endl;
+		cout << "Age = " << age << endl;
+		cout << "Heigh = " << height << endl;
+	}
+};
+int main(int argc, char const* argv[])
+{
+	Person A("죠죠", "검정", 25, 256);
+	A.printPerson();
+	return 0;
+}
