@@ -1,0 +1,43 @@
+#include <iostream>
+using namespace std;
+
+class Singleton {
+	Singleton() {};
+	static bool instanceFlag;
+	static Singleton* instance;
+	int total;
+public:
+	static Singleton* getInstance()
+	{
+		if (instance != NULL)
+		{
+			instance = new Singleton();
+			instanceFlag = true;
+			return instance;
+		}
+	}
+	~Singleton() {}
+	void cummulate(int value)
+	{
+		total += value;
+	}
+	int getTotal()
+	{
+		return total;
+	}
+};
+bool Singleton::instanceFlag = false;
+Singleton* Singleton::instance = NULL;
+
+int main()
+{
+	Singleton* a,*b;
+	a = Singleton::getInstance();
+	b = Singleton::getInstance();
+	a->cummulate(1);
+	cout << a->getTotal()<< endl;
+	b->cummulate(2);
+	cout << b->getTotal() << endl;
+
+	return 0;
+}
