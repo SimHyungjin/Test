@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+
+class A {
+	int data = 0;
+public:
+	A() {
+		cout << "A 생성자" << endl;
+	}
+	int getData();
+	void setData(int data);
+	void printData();
+};
+int A::getData() {
+	return data;
+}
+void A::setData(int data) {
+	this->data = data;
+}
+void A::printData() {
+	cout << data << endl;
+}
+
+class B :public A
+{
+public:
+	B() { cout << "B 생성자" << endl; }
+	void Test()
+	{
+		printData();
+		setData(5);
+		cout << getData() << endl;
+	}
+};
+int main()
+{
+	B a;
+	a.Test();
+}
