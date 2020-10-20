@@ -1,0 +1,45 @@
+#include "iostream"
+using namespace std;
+
+class Vehicle
+{
+	int numTire;
+public:
+	Vehicle() { cout << "Vehicle create" << endl; }
+	~Vehicle() { cout << "Vehicle delete" << endl; }
+	Vehicle(int nT) : numTire(nT) {}
+	void setNumTire(int t) { numTire = t; }
+	int getNumTire() { return numTire; }
+};
+
+class Car : public Vehicle
+{
+	static int numObj;
+	int numSeat;
+public:
+	static int getNumObj() {
+		return numObj;
+	}
+	Car() { numObj++; cout << "Car create" << endl; }
+	Car(int nT, int nS) : numSeat(nS), Vehicle(nT) { numObj++; }
+	void setNumSeat(int a) { numSeat = a; }
+	void setAttr(int t, int s) { setNumTire(t); numSeat = s; }
+	~Car() { --numObj; cout << "Car delete" << endl; }
+	void printAll() {
+		cout << "numTire: " << getNumTire() << " numSeat:  " << numSeat << endl;
+	}
+};
+
+int Car::numObj = 0;
+
+int main(int argc, char const* argv[])
+{
+	Car c1(4, 5), c2, c3;
+	{
+		Car c4, c5;
+		cout << Car::getNumObj() << endl;  // 5 출력
+	}
+	cout << Car::getNumObj() << endl;      // 3 출력
+
+	return 0;
+}
