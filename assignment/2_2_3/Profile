@@ -1,0 +1,80 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Profile
+{
+	string name;
+	int age;
+	float height;
+	int weight;
+public:
+	Profile() {}
+	Profile(string n, int a, float h, int w) : name(n), age(a), height(h), weight(w) {}
+	~Profile() {}
+	void setname(int n)
+	{
+		this->name = n;
+	}
+	void setage(int a)
+	{
+		this->age = a;
+	}
+	void setheight(float h)
+	{
+		this->height = h;
+	}
+	void setweight(int w)
+	{
+		this->weight = w;
+	}
+	string getname()
+	{
+		return name;
+	}
+	int getAge()
+	{
+		return age;
+	}
+	float getHeight()
+	{
+		return height;
+	}
+	int getweight()
+	{
+		return weight;
+	}
+	void printProfile();
+	Profile(const Profile& pr)
+	{
+		this->name = pr.name;
+		this->age = pr.age;
+		this->height = pr.height;
+		this->weight = pr.weight;
+		cout << "Copy" << endl;
+	}
+};
+inline void Profile::printProfile()
+{
+	cout << "Name : " << name << endl;
+	cout << "Age : " << age << endl;
+	cout << "Height : " << height << endl;
+	cout << "Weight : " << weight << endl;
+	cout << " "<< endl;
+}
+
+
+int main(int argc, char const* argv[])
+{
+	Profile a("심형진", 25, 169.5, 69);
+	Profile b;
+	b = a;
+
+	a.printProfile();
+	b.printProfile();
+	Profile c = b;
+	c.printProfile();
+
+	return 0;
+
+}
