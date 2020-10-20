@@ -1,0 +1,50 @@
+#include <iostream>
+using namespace std;
+
+class Date {
+	int year;
+	int month;
+	int day;
+public:
+	Date();
+	inline Date(int y, int m, int d) : year(y), month(m), day(d) {}
+	~Date() {}
+	void setYear(int y)
+	{
+		this->year = y;
+	}
+	void setMonth(int m)
+	{
+		this->month = m;
+	}
+	void setDay(int d)
+	{
+		this->day = d;
+	}
+	int getYear()
+	{
+		return year;
+	}
+	int getMonth()
+	{
+		return month;
+	}
+	int getDay()
+	{
+		return day;
+	}
+	void printDate();
+};
+inline void Date::printDate()
+{
+		cout << "Year : " << year << endl;
+		cout << "Month : " << month << endl;
+		cout << "Day : " << day << endl;
+}
+
+
+int main(int argc, char const* argv[])
+{
+	Date a(2021, 9, 21);
+	a.printDate();
+}
