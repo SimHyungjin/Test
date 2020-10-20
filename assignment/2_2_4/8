@@ -1,0 +1,39 @@
+#include <iostream>
+#include <exception> 
+
+using namespace std;
+
+double mix(int a, int b)
+{
+    if (b == 0.0) {
+        throw a;
+    }
+    if (a > 10 || b > 10) {
+        throw b;
+    }
+    return a * b;
+}
+
+int main()
+{
+    int a, b;
+    cout << "구구단" << endl;
+    cout << "Enter two numbers : ";
+    cin >> a >> b;
+    try
+    {
+        cout << a << " * " << b << " = " << mix(a, b) << endl;
+    }
+    catch (string a)
+    {
+        cout << endl;
+        cout << "구구단에 0은 포함되지 않습니다." << endl;
+    }
+    catch (...)
+    {
+        cout << endl;
+        cout << "9보다 큰 수는 불가능합니다." << endl;
+    }
+
+    return 0;
+}
