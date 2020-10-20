@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+
+class Some
+{
+public:
+    int a;
+    Some() :a(0) {}
+    void seta(int value) { a = value; }
+    int get() const;
+};
+int Some::get()const
+{
+    return a;
+}
+int main()
+{
+    const int gravity = 1;
+    gravity++;
+}
